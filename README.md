@@ -1,7 +1,6 @@
 # Elementarität im Pricing: die Wand – Streamlit-Demo
 
-<!-- Nach dem Deploy hier direkt den Live-Link einsetzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-elementar-pricing-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-elementar-pricing-demo.streamlit.app/)**
 
 Demo der Linie „Ressourcenwege und Spaltenerzeugung“ in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Das **Label-Verfahren** sucht den Weg mit den kleinsten **reduzierten Kosten**
 (Weglänge minus die Dualpreise der besuchten Kunden), mit Zeitfenstern, Last und **höchstens einem Besuch je Kunde** (elementar); es ist das Preisproblem der Spaltenerzeugung. Jeder Teilweg ist ein **Label** (Kosten, Zeit, Last und die **Menge der
