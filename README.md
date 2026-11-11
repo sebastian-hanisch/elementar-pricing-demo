@@ -20,7 +20,7 @@ an Zufallsinstanzen mit 10 bis 30 Kunden, wie Labels, Vergleiche und Abbrüche w
 ## Befunde und Korrekturen gegenüber dem Plan
 
 - **Neu gerechnet statt übernommen:** Die Messreihen der Experimente 4 und 5 sind mit dem Kern dieser Demo neu gerechnet (`tools/bands_bauen.py`); die Rohzeilen stehen in `data/laeufe.json`. Die Zahl der fertigen Läufe und der Median der Labels
-  (ganzzahlig gerundet) stimmen mit der früheren Messung (`run_p07.log`; die Rohdateien früherer Messungen liegen nicht im Repo) in 29 von 30 Zellen (2 Fensterbreiten × 5 Kundenzahlen × 3 Gedächtnisse) überein. Die Ausnahme: 30 Kunden, Breite 100, elementar, dort sind in der Neurechnung 2 von 6 Läufen fertig, in der früheren Messung 3 von 6.
+  (ganzzahlig gerundet) stimmen mit der früheren Messung (`run_p07.log`; die Rohdateien früherer Messungen sind nicht veröffentlicht) in 29 von 30 Zellen (2 Fensterbreiten × 5 Kundenzahlen × 3 Gedächtnisse) überein. Die Ausnahme: 30 Kunden, Breite 100, elementar, dort sind in der Neurechnung 2 von 6 Läufen fertig, in der früheren Messung 3 von 6.
 - **Abbrüche hängen von der Last ab:** In der Neurechnung brechen auf dem Messrechner bei 30 Kunden und Breite 100 4 von 6 elementaren Läufen an der Zeitgrenze ab, in der früheren Messung waren es 3 von 6, in einem früheren Lauf mit fünf gleichzeitigen Rechnungen 4 von 6. Die Demo nennt alle drei Zahlen.
   Eine Abbruchquote ist keine Eigenschaft der Instanzen allein.
 - **Wachstum der Labels:** Der Faktor der Median-Labels (elementar, Breite 100) von einer Kundenzahl zur nächsten ist 5,7 (10 auf 15), 2,7 (15 auf 20) und 2,6 (20 auf 25). Für 25 auf 30 wird kein Faktor genannt: Bei 30 Kunden stammt der Median nur
