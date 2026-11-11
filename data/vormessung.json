@@ -1,0 +1,395 @@
+{
+ "hinweis": "Zahlen der Vormessung: V1 zum Vergleich mit dem Neurechnen, V7 und V8 und der Lauf unter Last NICHT neu gerechnet; jede Zeile nennt ihre Quelldatei.",
+ "abbrueche": [
+  {
+   "gruppe": "V1",
+   "bezeichnung": "30 Kunden, Fensterbreite 40, elementar (Zeitgrenze 30 s je Pricing-Aufruf)",
+   "n": 30,
+   "breite": 40,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "im_ersten_aufruf": 0,
+   "nicht_neu_gerechnet": false,
+   "quelle": "out_v1_n30.txt (Vormessung, ls_kern.py); in der Demo neu gerechnet, siehe data/laeufe.json"
+  },
+  {
+   "gruppe": "V1",
+   "bezeichnung": "30 Kunden, Fensterbreite 100, elementar (Zeitgrenze 30 s je Pricing-Aufruf)",
+   "n": 30,
+   "breite": 100,
+   "laeufe": 6,
+   "abgebrochen": 3,
+   "im_ersten_aufruf": 3,
+   "nicht_neu_gerechnet": false,
+   "quelle": "out_v1_n30.txt (Vormessung, ls_kern.py); in der Demo neu gerechnet, siehe data/laeufe.json"
+  },
+  {
+   "gruppe": "V1",
+   "bezeichnung": "30 Kunden, Fensterbreite 200, elementar (Zeitgrenze 30 s je Pricing-Aufruf)",
+   "n": 30,
+   "breite": 200,
+   "laeufe": 6,
+   "abgebrochen": 6,
+   "im_ersten_aufruf": 6,
+   "nicht_neu_gerechnet": false,
+   "quelle": "out_v1_n30.txt (Vormessung, ls_kern.py); in der Demo neu gerechnet, siehe data/laeufe.json"
+  },
+  {
+   "gruppe": "V7",
+   "bezeichnung": "30 Kunden, zufällig verteilt, Fensterbreite 100, Überdeckungs-Master, elementar",
+   "n": 30,
+   "breite": 100,
+   "laeufe": 5,
+   "abgebrochen": 4,
+   "im_ersten_aufruf": 4,
+   "nicht_neu_gerechnet": true,
+   "quelle": "out_v7_zufall.txt (Vormessung, Zeitgrenze laut GLIEDERUNG.md 15 s je Pricing-Aufruf)"
+  },
+  {
+   "gruppe": "V7",
+   "bezeichnung": "30 Kunden, gruppiert, Fensterbreite 100, Überdeckungs-Master, elementar",
+   "n": 30,
+   "breite": 100,
+   "laeufe": 5,
+   "abgebrochen": 4,
+   "im_ersten_aufruf": 4,
+   "nicht_neu_gerechnet": true,
+   "quelle": "out_v7_cluster.txt (Vormessung, Zeitgrenze laut GLIEDERUNG.md 15 s je Pricing-Aufruf)"
+  },
+  {
+   "gruppe": "V7",
+   "bezeichnung": "30 Kunden, zufällig verteilt, schmale Fenster, Fensterbreite 60, Überdeckungs-Master, elementar",
+   "n": 30,
+   "breite": 60,
+   "laeufe": 5,
+   "abgebrochen": 5,
+   "im_ersten_aufruf": 5,
+   "nicht_neu_gerechnet": true,
+   "quelle": "out_v7_lang.txt (Vormessung, Zeitgrenze laut GLIEDERUNG.md 15 s je Pricing-Aufruf)"
+  },
+  {
+   "gruppe": "V8",
+   "bezeichnung": "50 und 100 Kunden, 8 Zellen (zufällig und gruppiert, Breiten 20, 40, 100) mit je 12 Instanzen, elementar",
+   "n": null,
+   "breite": null,
+   "laeufe": 96,
+   "abgebrochen": 94,
+   "im_ersten_aufruf": 94,
+   "nicht_neu_gerechnet": true,
+   "quelle": "out_v8_*_elem.txt (Vormessung, Zeitgrenze 30 s je Pricing-Aufruf)"
+  },
+  {
+   "gruppe": "P07b",
+   "bezeichnung": "30 Kunden, Fensterbreite 100, elementar, fünf Läufe gleichzeitig (mehr Last)",
+   "n": 30,
+   "breite": 100,
+   "laeufe": 6,
+   "abgebrochen": 4,
+   "im_ersten_aufruf": 4,
+   "nicht_neu_gerechnet": true,
+   "quelle": "run_p07_vergleiche_n30.log (Vormessung, ls_mehrres.py)"
+  }
+ ],
+ "wand_median": [
+  {
+   "n": 10,
+   "breite": 40,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 475,
+   "anteil_gestrichen_prozent": 56.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 10,
+   "breite": 40,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 482,
+   "anteil_gestrichen_prozent": 45.7,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 10,
+   "breite": 40,
+   "k": 10,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 500,
+   "anteil_gestrichen_prozent": 36.3,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 10,
+   "breite": 100,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 984,
+   "anteil_gestrichen_prozent": 61.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 10,
+   "breite": 100,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 943,
+   "anteil_gestrichen_prozent": 53.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 10,
+   "breite": 100,
+   "k": 10,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 1430,
+   "anteil_gestrichen_prozent": 46.1,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 10"
+  },
+  {
+   "n": 15,
+   "breite": 40,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 1258,
+   "anteil_gestrichen_prozent": 66.7,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 15,
+   "breite": 40,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 1590,
+   "anteil_gestrichen_prozent": 55.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 15,
+   "breite": 40,
+   "k": 15,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 1566,
+   "anteil_gestrichen_prozent": 38.9,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 15,
+   "breite": 100,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 4928,
+   "anteil_gestrichen_prozent": 74.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 15,
+   "breite": 100,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 6870,
+   "anteil_gestrichen_prozent": 68.4,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 15,
+   "breite": 100,
+   "k": 15,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 8139,
+   "anteil_gestrichen_prozent": 52.0,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 15"
+  },
+  {
+   "n": 20,
+   "breite": 40,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 4197,
+   "anteil_gestrichen_prozent": 75.5,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 20,
+   "breite": 40,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 4372,
+   "anteil_gestrichen_prozent": 67.8,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 20,
+   "breite": 40,
+   "k": 20,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 5255,
+   "anteil_gestrichen_prozent": 47.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 20,
+   "breite": 100,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 11432,
+   "anteil_gestrichen_prozent": 81.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 20,
+   "breite": 100,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 15142,
+   "anteil_gestrichen_prozent": 75.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 20,
+   "breite": 100,
+   "k": 20,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 21646,
+   "anteil_gestrichen_prozent": 53.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 20"
+  },
+  {
+   "n": 25,
+   "breite": 40,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 8630,
+   "anteil_gestrichen_prozent": 78.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 25,
+   "breite": 40,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 9264,
+   "anteil_gestrichen_prozent": 71.1,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 25,
+   "breite": 40,
+   "k": 25,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 15104,
+   "anteil_gestrichen_prozent": 44.6,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 25,
+   "breite": 100,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 27164,
+   "anteil_gestrichen_prozent": 83.9,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 25,
+   "breite": 100,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 37712,
+   "anteil_gestrichen_prozent": 79.1,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 25,
+   "breite": 100,
+   "k": 25,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 56877,
+   "anteil_gestrichen_prozent": 53.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 25"
+  },
+  {
+   "n": 30,
+   "breite": 40,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 16938,
+   "anteil_gestrichen_prozent": 82.3,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  },
+  {
+   "n": 30,
+   "breite": 40,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 20904,
+   "anteil_gestrichen_prozent": 78.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  },
+  {
+   "n": 30,
+   "breite": 40,
+   "k": 30,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 40175,
+   "anteil_gestrichen_prozent": 49.5,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  },
+  {
+   "n": 30,
+   "breite": 100,
+   "k": 1,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 57330,
+   "anteil_gestrichen_prozent": 87.2,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  },
+  {
+   "n": 30,
+   "breite": 100,
+   "k": 5,
+   "laeufe": 6,
+   "abgebrochen": 0,
+   "labels_median": 92038,
+   "anteil_gestrichen_prozent": 84.4,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  },
+  {
+   "n": 30,
+   "breite": 100,
+   "k": 30,
+   "laeufe": 6,
+   "abgebrochen": 3,
+   "labels_median": 140285,
+   "anteil_gestrichen_prozent": 54.0,
+   "quelle": "run_p07.log (Vormessung, ls_kern.py), Abschnitt n = 30"
+  }
+ ]
+}
