@@ -431,7 +431,7 @@ st.markdown(
 | **Dominanz mit Menge** | Ohne die Mengenbedingung rechnet das Verfahren mit weniger Labels und verfehlt am Handbeispiel in {len(_search())} von {ev.fmt_int(C.SEARCH_SETS)} Dualpreis-Sätzen den besten Weg. | Experiment 2 |
 | **Eigene Instanzen, zufällig verteilt, bis 30 Kunden** | Bei gruppierten Kunden und bei 50 und 100 Kunden stehen nur Zahlen früherer Messungen (nicht neu gerechnet). | Experiment 5 |
 | **Zeitgrenze von 30 Sekunden je Pricing-Aufruf** | Abbrüche hängen von Rechner und Last ab; die Zahlen zeigen die Richtung, nicht eine feste Grenze. | Experiment 5 |
-| **Eine Python-Fassung ohne Beschleunigung** | Gezählt werden Labels und Vergleiche; beide gelten für diese Fassung (Prüfreihenfolge gegen die lebenden Labels, keine Eimer), die Sekunden ebenso. | Experimente 3 und 4 |
+| **Eine Python-Fassung ohne Beschleunigung** | Gezählt werden Labels und Vergleiche; beide gelten für diese Fassung (Prüfreihenfolge gegen die lebenden Labels, keine Buckets), die Sekunden ebenso. | Experimente 3 und 4 |
 """
 )
 

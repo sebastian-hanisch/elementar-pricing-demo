@@ -139,7 +139,7 @@ auf 474,0 (n = 30), aber nicht gleichmäßig: bei n = 25 ist der Wert (214,6) ni
 - Eigene Instanzen im Stil der Solomon-Instanzen, **nicht die Originalinstanzen**, nur zufällig verteilte Kunden; die Messreihen haben je Kundenzahl und Breite 6 Instanzen, 10 bis 30 Kunden. Die Zahlen für gruppiert verteilte Kunden und für 50 und 100 Kunden stammen aus Messdateien früherer Messungen und sind in der Demo
   **nicht neu gerechnet**.
 - Ein Abbruch ist ein Abbruch an einer Zeitgrenze von 30 Sekunden je Pricing-Aufruf. Er zeigt nicht, dass die elementare Rechnung bei dieser Größe grundsätzlich nicht zu lösen wäre, und die Quote hängt von Rechner und Last ab (4 von 6 in der Neurechnung gegen 3 von 6 in der früheren Messung bei 30 Kunden und Breite 100).
-- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Eimer, kein beidseitiges Suchen) und mit genau den Dominanzregeln dieser Demo. Die Zahl der Vergleiche je Label gilt für diese Fassung; über andere Fassungen sagt die Demo nichts.
+- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Buckets, kein beidseitiges Suchen) und mit genau den Dominanzregeln dieser Demo. Die Zahl der Vergleiche je Label gilt für diese Fassung; über andere Fassungen sagt die Demo nichts.
 - Die Gegenprobe „Dominanz ohne Menge“ gilt für das Handbeispiel: 1 von 3 000 Dualpreis-Sätzen ist eine Zählung an diesem Netz, keine Wahrscheinlichkeit für andere Instanzen. Ob solche Dualpreise in einer echten Spaltengenerierung vorkommen, ist nicht gemessen.
 - Das Handbeispiel (7 Kunden, Last 6) zeigt die Wand noch nicht; sie steht in den Messreihen.
 - Ursachen („weil …“) sind Deutungen, wo es dasteht; gemessen sind die Zählungen.
@@ -158,7 +158,7 @@ Annahmen, Grenzen und bekannte Probleme, wie sie auch in der App stehen (ein Tes
 - Die festen Messreihen haben je 6 Instanzen je Kundenzahl und Fensterbreite (Zufalls-Seeds 0 bis 5), nur zufällig verteilte Kunden; 10 bis 30 Kunden.
 - Abbrüche der elementaren Rechnung sind Abbrüche an einer Zeitgrenze von 30 Sekunden je Pricing-Aufruf und hängen von Rechner und Last ab; die Zahlen von Experiment 5 sind kein Beleg dafür, dass die elementare Rechnung bei dieser Größe grundsätzlich nicht zu lösen wäre.
 - Die Abbruchzahlen für 50 und 100 Kunden und für gruppiert verteilte Kunden stammen aus Messdateien früherer Messungen und sind in der Demo nicht neu gerechnet.
-- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Eimer, kein beidseitiges Suchen); sie macht keine Aussage über andere Fassungen.
+- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Buckets, kein beidseitiges Suchen); sie macht keine Aussage über andere Fassungen.
 
 **Bekannte Probleme und Unsicherheiten**
 - Ursachen („weil …“) sind Deutungen, wo es dasteht; gemessen sind die Zählungen.
@@ -203,7 +203,7 @@ Annahmen, Grenzen und bekannte Probleme, wie sie auch in der App stehen (ein Tes
 ## Bewusst nicht umgesetzt
 
 - Keine Aussage über Rechenzeit und keine Zeitmessung in der App; die Sekunden der Neurechnung stehen nur in `data/laeufe.json`.
-- Keine Abhilfe gegen die Wand: kein kleineres Gedächtnis als Verfahren der Wahl (nur als Vergleich k = 1 und k = 5; dazu [ng-routen-demo](https://github.com/sebastian-hanisch/ng-routen-demo)), kein beidseitiges Suchen, keine Eimer, keine Dominanz mit Ersatzgrößen.
+- Keine Abhilfe gegen die Wand: kein kleineres Gedächtnis als Verfahren der Wahl (nur als Vergleich k = 1 und k = 5; dazu [ng-routen-demo](https://github.com/sebastian-hanisch/ng-routen-demo)), kein beidseitiges Suchen, keine Buckets, keine Dominanz mit Ersatzgrößen.
 - Keine gruppiert verteilten Kunden und keine Instanzen mit mehr als 30 Kunden in der Neurechnung (nur die Zahlen früherer Messungen für Abbrüche).
 - Keine Live-Spaltengenerierung für Zufallsinstanzen in der App (Experimente 4 und 5 zeigen feste Messreihen; der Größenversuch ist ein einzelner Pricing-Aufruf); die Spaltengenerierung am Handbeispiel läuft live.
 - Kein PDF-Export.

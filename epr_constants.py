@@ -63,7 +63,7 @@ ASSUMPTIONS_MARKDOWN = """\
 - Die festen Messreihen haben je 6 Instanzen je Kundenzahl und Fensterbreite (Zufalls-Seeds 0 bis 5), nur zufällig verteilte Kunden; 10 bis 30 Kunden.
 - Abbrüche der elementaren Rechnung sind Abbrüche an einer Zeitgrenze von 30 Sekunden je Pricing-Aufruf und hängen von Rechner und Last ab; die Zahlen von Experiment 5 sind kein Beleg dafür, dass die elementare Rechnung bei dieser Größe grundsätzlich nicht zu lösen wäre.
 - Die Abbruchzahlen für 50 und 100 Kunden und für gruppiert verteilte Kunden stammen aus Messdateien früherer Messungen und sind in der Demo nicht neu gerechnet.
-- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Eimer, kein beidseitiges Suchen); sie macht keine Aussage über andere Fassungen.
+- Gemessen ist eine Python-Fassung des Label-Verfahrens ohne Beschleunigungen (keine Buckets, kein beidseitiges Suchen); sie macht keine Aussage über andere Fassungen.
 
 **Bekannte Probleme und Unsicherheiten**
 - Ursachen („weil …“) sind Deutungen, wo es dasteht; gemessen sind die Zählungen.
