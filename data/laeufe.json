@@ -1,5 +1,5 @@
 {
- "hinweis": "Je Zeile eine Spaltenerzeugung (Überdeckungs-Master), neu gerechnet mit dem Kern der Demo; k = n heißt elementar. Sekunden und Abbrüche hängen von Rechner und Last ab.",
+ "hinweis": "Je Zeile eine Spaltengenerierung (Überdeckungs-Master), neu gerechnet mit dem Kern der Demo; k = n heißt elementar. Sekunden und Abbrüche hängen von Rechner und Last ab.",
  "zeilen": [
   {
    "n": 10,

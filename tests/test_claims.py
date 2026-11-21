@@ -129,7 +129,7 @@ def test_the_rows_of_the_measurement_series_are_complete_and_cite_their_source()
             assert not r["abgebrochen"]
     elementary_aborted = [r for r in rows if r["abgebrochen"]]
     assert all(r["k"] == r["n"] and r["n"] == 30 for r in elementary_aborted)
-    assert "Zeitgrenze 30 Sekunden je Pricing-Aufruf, 120 Sekunden je Spaltenerzeugung" in README
+    assert "Zeitgrenze 30 Sekunden je Pricing-Aufruf, 120 Sekunden je Spaltengenerierung" in README
 
 
 def _wall_md(row):

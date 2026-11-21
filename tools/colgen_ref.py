@@ -1,9 +1,9 @@
-"""Spaltenerzeugung (Überdeckungs-Master, scipy/HiGHS) für Messreihen, Tests und Werkzeuge: nicht für die App (braucht scipy).
+"""Spaltengenerierung (Überdeckungs-Master, scipy/HiGHS) für Messreihen, Tests und Werkzeuge: nicht für die App (braucht scipy).
 
 Master: Kosten der Routen minimieren, jeder Kunde mindestens einmal überdeckt (LP, HiGHS). Die Dualpreise des Masters gehen als Kundenpreise in das
 Label-Verfahren der Demo (`epr_algorithm.price`); neue Routen mit negativen reduzierten Kosten (bis zu 15 je Runde) werden als Spalten ergänzt, bis keine
 neue mehr kommt. Das Ergebnis ist die Schranke des Masters. Bricht das Preisproblem an seiner Zeitgrenze ab (`time_limit_price`, Sekunden je Aufruf)
-oder die ganze Spaltenerzeugung an `time_limit_total`, ist `aborted` wahr und `bound` None; `abort_round` nennt die Runde (1 = der erste Aufruf mit den
+oder die ganze Spaltengenerierung an `time_limit_total`, ist `aborted` wahr und `bound` None; `abort_round` nennt die Runde (1 = der erste Aufruf mit den
 Dualpreisen der Einzelfahrten)."""
 
 import sys
@@ -24,7 +24,7 @@ def route_cost(inst, route) -> float:
 
 def colgen(inst, k: int, dominance: str = "voll", max_iter: int = 400, time_limit_price: float | None = None,
            time_limit_total: float | None = None) -> dict:
-    """Schranke, Runden, Spalten, erzeugte und gestrichene Labels, Dominanzvergleiche und Abbruch der Spaltenerzeugung."""
+    """Schranke, Runden, Spalten, erzeugte und gestrichene Labels, Dominanzvergleiche und Abbruch der Spaltengenerierung."""
     from scipy.optimize import linprog
 
     n = inst.n

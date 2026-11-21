@@ -6,7 +6,7 @@ Orakel 2: das Verfahren mit Gedächtnis k < n gegen die Aufzählung aller Folgen
           Besuchen ein Kunde lag, in dessen Nachbarschaft er nicht liegt).
 Orakel 3: eine zweite, bewusst anders geschriebene Fassung des Label-Verfahrens (frozenset-Mengen, eigene Schleife) liefert dieselben Zählungen (erzeugte, verworfene, verdrängte
           Labels, Dominanzvergleiche, Prüfungen nur an der Menge), die Anfänge ohne Dominanz sind gleich den zulässigen Teilwegen (Aufzählung).
-Orakel 4: der genaue Master (Brüche) gegen scipy/HiGHS; die Spaltenerzeugung gegen einen Master über alle Routen.
+Orakel 4: der genaue Master (Brüche) gegen scipy/HiGHS; die Spaltengenerierung gegen einen Master über alle Routen.
 Alles zusammen läuft in wenigen Sekunden (Instanzen mit höchstens 8 Kunden)."""
 
 import heapq
@@ -321,7 +321,7 @@ def test_without_dominance_every_feasible_partial_route_becomes_a_label():
         assert A.price(inst, pi, inst.n, "keine").generated == prefixes + 1
 
 
-# --- Orakel 4: Master und Spaltenerzeugung ----------------------------------------------------------------------------------------------------
+# --- Orakel 4: Master und Spaltengenerierung ----------------------------------------------------------------------------------------------------
 
 def test_exact_master_equals_scipy_on_random_column_sets():
     linprog = pytest.importorskip("scipy.optimize").linprog

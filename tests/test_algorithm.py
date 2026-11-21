@@ -1,4 +1,4 @@
-"""Kern gegen Handrechnung am Handbeispiel (DEMO-PLAYBOOK §1b): je Einheit eine Prüfung (Fortsetzung, Dominanzregel, Gedächtnis, Zählungen, Spaltenerzeugung),
+"""Kern gegen Handrechnung am Handbeispiel (DEMO-PLAYBOOK §1b): je Einheit eine Prüfung (Fortsetzung, Dominanzregel, Gedächtnis, Zählungen, Spaltengenerierung),
 dazu die Zahlen des Handbeispiels. Die Rechnungen stehen als Rechnung da; was nur das Ergebnis des Codes abschriebe, steht in `test_oracle_*` gegen einen anderen Weg."""
 
 import random

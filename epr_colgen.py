@@ -1,9 +1,9 @@
-"""Spaltenerzeugung mit genauem Master für das Handbeispiel (nur Standardbibliothek, Brüche statt Gleitkomma).
+"""Spaltengenerierung mit genauem Master für das Handbeispiel (nur Standardbibliothek, Brüche statt Gleitkomma).
 
 Master (Überdeckung): minimiere die Kosten der gewählten Routen, jeder Kunde mindestens einmal überdeckt. Gelöst wird sein Duales
     max sum(pi)   unter   A^T pi <= c,  pi >= 0
 mit dem Simplex-Verfahren in Brüchen (Regel von Bland); das Ergebnis sind genaue Dualpreise, der Wert und die Mengen der Routen. So ist jede
-Runde der Spaltenerzeugung am Handbeispiel von Hand nachrechenbar und reproduzierbar (kein Löser mit eigener Wahl unter gleich guten Dualpreisen).
+Runde der Spaltengenerierung am Handbeispiel von Hand nachrechenbar und reproduzierbar (kein Löser mit eigener Wahl unter gleich guten Dualpreisen).
 
 Für große Instanzen (Messreihen) rechnet `tools/colgen_ref.py` den Master mit scipy (HiGHS); beide Wege werden in den Tests verglichen."""
 
@@ -79,7 +79,7 @@ class ColgenResult(NamedTuple):
 
 
 def colgen(inst: Instance, k: int, max_rounds: int = 200) -> ColgenResult:
-    """Spaltenerzeugung mit genauem Master und elementarem (k = n) oder k-Gedächtnis-Pricing; je Runde kommt die beste Spalte hinzu (Gleichstand: die kleinere Folge)."""
+    """Spaltengenerierung mit genauem Master und elementarem (k = n) oder k-Gedächtnis-Pricing; je Runde kommt die beste Spalte hinzu (Gleichstand: die kleinere Folge)."""
     cols = [(j,) for j in range(1, inst.n + 1)]
     rounds = []
     for number in range(1, max_rounds + 1):
@@ -95,6 +95,6 @@ def colgen(inst: Instance, k: int, max_rounds: int = 200) -> ColgenResult:
 
 
 def bound_over_all_routes(inst: Instance) -> tuple[Fr, int]:
-    """Bezug: ein Master über ALLE zulässigen elementaren Routen (Aufzählung): (Zielwert, Zahl der Routen). Muss gleich der Schranke der Spaltenerzeugung sein."""
+    """Bezug: ein Master über ALLE zulässigen elementaren Routen (Aufzählung): (Zielwert, Zahl der Routen). Muss gleich der Schranke der Spaltengenerierung sein."""
     walks = [route for _, route, _ in A.enumerate_routes(inst, [0] * (inst.n + 1))]
     return solve_master(inst, walks)[1], len(walks)

@@ -1,7 +1,7 @@
 """Elementarität im Pricing: die Wand - interaktive Konzept-Demo
 Sebastian Hanisch - Operations Research und Machine Learning
 
-Label-Verfahren für den Weg mit den kleinsten reduzierten Kosten (Preisproblem der Spaltenerzeugung), wenn jeder Kunde höchstens einmal besucht werden darf:
+Label-Verfahren für den Weg mit den kleinsten reduzierten Kosten (Preisproblem der Spaltengenerierung), wenn jeder Kunde höchstens einmal besucht werden darf:
 Was kostet es, die Besuchsmenge im Label mitzuführen? Handbeispiel Schritt für Schritt, die Gegenprobe „Dominanz ohne Menge“, Größenversuch live,
 feste Messreihen bis 30 Kunden und die Abbrüche der elementaren Rechnung.
 
@@ -79,7 +79,7 @@ with st.container(key="kopf"):
     st.title("🧱 Elementarität im Pricing: die Wand")
 st.markdown(
     """
-Beim **Preisproblem der Spaltenerzeugung** wird ein Weg mit negativen **reduzierten Kosten** gesucht (Weglänge minus die **Dualpreise** der besuchten Kunden; der Dualpreis ist der Betrag, den die
+Beim **Preisproblem der Spaltengenerierung** wird ein Weg mit negativen **reduzierten Kosten** gesucht (Weglänge minus die **Dualpreise** der besuchten Kunden; der Dualpreis ist der Betrag, den die
 übergeordnete Planung einem Kunden zurechnet). Darf ein Weg einen Kunden mehrfach anfahren, bildet er **Kreise**. Wer Kreise **ganz verbietet** (**elementar**: jeder Kunde höchstens einmal), muss in jedem
 **Label** (Teilweg) die **Menge der besuchten Kunden** mitführen, und ein Label darf nur noch gestrichen werden, wenn dessen Menge in der des anderen enthalten ist. Diese Demo fragt: **Was kostet das?** Gezählt werden
 **Labels** und **Dominanzvergleiche** (keine Sekunden): am Handbeispiel Schritt für Schritt, an der Gegenprobe „Dominanz ohne Menge“, an Zufallsinstanzen mit bis zu 20 Kunden, in festen Messreihen bis 30 Kunden und an den
@@ -143,7 +143,7 @@ st.markdown("## 🎯 Das Handbeispiel: sieben Kunden, jeder höchstens einmal")
 st.markdown(
     "Ein Fahrzeug startet im Depot (Gitterpunkt (0, 0)) und besucht Kunden. **Entfernung = Fahrzeit = Kosten = Manhattan-Abstand** (so bleiben alle Zahlen ganz). "
     f"Bedienzeit {inst.service}, Rückkehr spätestens zur Zeit {inst.horizon}, Last höchstens {inst.capacity}. Wer vor Beginn seines Fensters ankommt, wartet kostenlos. **Reduzierte Kosten einer Route** = "
-    "Summe der Entfernungen minus Summe der Dualpreise der besuchten Kunden; gesucht ist die kleinste (negativste). Die Dualpreise der Tabelle sind die der **ersten Runde** der Spaltenerzeugung: "
+    "Summe der Entfernungen minus Summe der Dualpreise der besuchten Kunden; gesucht ist die kleinste (negativste). Die Dualpreise der Tabelle sind die der **ersten Runde** der Spaltengenerierung: "
     "Solange der übergeordnete Plan nur Einzelfahrten kennt, ist der Dualpreis eines Kunden gleich den Kosten seiner Einzelfahrt."
 )
 first_duals = hand_duals()
@@ -229,7 +229,7 @@ pairs = ev.pair_rows(elem_hand) if show_pairs else ev.first_blocked_pairs(elem_h
 st.dataframe(pd.DataFrame(pairs), hide_index=True, width="stretch")
 
 cg, cg_rows, (all_routes_bound, all_routes_count) = _colgen_hand()
-st.markdown("**Und die ganze Spaltenerzeugung?** Elementar bis zum Ende, mit genauem Master (Brüche): je Runde die beste neue Spalte, bis keine Route mehr unter 0 liegt.")
+st.markdown("**Und die ganze Spaltengenerierung?** Elementar bis zum Ende, mit genauem Master (Brüche): je Runde die beste neue Spalte, bis keine Route mehr unter 0 liegt.")
 st.dataframe(pd.DataFrame(cg_rows), hide_index=True, width="stretch")
 st.caption(
     f"Die Schranke des Masters ist {ev.fmt_num(cg.bound)} nach {len(cg.rounds)} Runden mit insgesamt {cg.labels} erzeugten Labels. Gegenprobe: Ein Master über alle {all_routes_count} zulässigen elementaren Routen "
@@ -278,7 +278,7 @@ kind, text = ev.verdict_search(missed, C.SEARCH_SETS)
 getattr(st, kind)(text)
 if missed:
     st.dataframe(pd.DataFrame([{"Zufalls-Seed": seed_, "Dualpreise der Kunden 1 bis 7": ", ".join(str(p) for p in d)} for seed_, d in missed]), hide_index=True, width="stretch")
-st.caption("Ob ein solcher Dualpreis-Satz in einer echten Spaltenerzeugung vorkommt, ist hier nicht gemessen; die Suche zeigt nur, dass der Fehler vorkommt.")
+st.caption("Ob ein solcher Dualpreis-Satz in einer echten Spaltengenerierung vorkommt, ist hier nicht gemessen; die Suche zeigt nur, dass der Fehler vorkommt.")
 
 st.markdown("---")
 
@@ -339,7 +339,7 @@ st.markdown("---")
 wall = ev.wall_table(runs, int(width))
 st.subheader("🔬 Experiment 4: Die Wand in den Messungen")
 st.caption(
-    f"Feste Messreihe, mit dem Kern dieser Demo neu gerechnet: je Kundenzahl {C.PER_CLUSTER} Zufallsinstanzen (Zufalls-Seeds 0 bis 5), Fensterbreite {int(width)} (Seitenleiste), Überdeckungs-Master, die **ganze Spaltenerzeugung** "
+    f"Feste Messreihe, mit dem Kern dieser Demo neu gerechnet: je Kundenzahl {C.PER_CLUSTER} Zufallsinstanzen (Zufalls-Seeds 0 bis 5), Fensterbreite {int(width)} (Seitenleiste), Überdeckungs-Master, die **ganze Spaltengenerierung** "
     "(viele Pricing-Aufrufe mit wechselnden Dualpreisen). Verglichen: elementar, Gedächtnis k = 5 und k = 1. Zeitgrenze 30 Sekunden je Pricing-Aufruf; Mediane über die fertigen Läufe. Gerechnete Sekunden stehen in `data/laeufe.json`, "
     "hängen von Rechner und Last ab und sind hier nicht gezeigt."
 )
@@ -364,7 +364,7 @@ st.dataframe(df4, hide_index=True, width="stretch",
                             "Vergleiche elementar (Median)": st.column_config.NumberColumn(format="%d"), "Vergleiche k = 5 (Median)": st.column_config.NumberColumn(format="%d")})
 st.markdown("**Vergleiche je Label über die Kundenzahl** (logarithmische Achse; nur fertige Läufe; der Stern ist Ihre Instanz aus Experiment 3, ein einzelner Pricing-Aufruf):")
 st.plotly_chart(build_wall_chart(wall, int(width), int(n), size.per_label if not e.aborted else None), width="stretch", key="wall_chart")
-st.markdown("**Labels der ganzen Spaltenerzeugung über die Kundenzahl** (Median, logarithmische Achse):")
+st.markdown("**Labels der ganzen Spaltengenerierung über die Kundenzahl** (Median, logarithmische Achse):")
 st.plotly_chart(build_labels_chart(wall), width="stretch", key="labels_chart")
 kind, text = ev.verdict_wall(wall, int(width))
 getattr(st, kind)(text)
@@ -480,7 +480,7 @@ mindestens so viele freie Kunden) und kostet am Ende nicht mehr. Ohne $V_1 \subs
 elementaren Routen, ist am Handbeispiel (Variante B) und in den Messreihen gezählt, kein Satz.
 
 **Literatur** (Prüfstand: Autoren, Titel, Zeitschrift und Jahr per Suchtreffer bzw. Zusammenfassung geprüft; die Volltexte sind nicht gelesen, die Demo übernimmt keine Zahl daraus):
-- Feillet, Dejax, Gendreau, Gueguen (2004): An exact algorithm for the elementary shortest path problem with resource constraints: application to some vehicle routing problems, Networks 44(3), 216–229 (Elementarität als zusätzliche Ressource in der Spaltenerzeugung für Touren mit Zeitfenstern).
+- Feillet, Dejax, Gendreau, Gueguen (2004): An exact algorithm for the elementary shortest path problem with resource constraints: application to some vehicle routing problems, Networks 44(3), 216–229 (Elementarität als zusätzliche Ressource in der Spaltengenerierung für Touren mit Zeitfenstern).
 - Boland, Dethridge, Dumitrescu (2006): Accelerated label setting algorithms for the elementary resource constrained shortest path problem, Operations Research Letters 34(1), 58–68 (Besuchsressourcen verhindern Wiederholungen).
 - Irnich, Desaulniers (2005): Shortest path problems with resource constraints, Kapitel 2 in *Column Generation*, Springer (nur als Titel geprüft; Inhalt nicht gelesen).
 - Dass der elementare Fall im schlimmsten Fall schwer ist, ist in der Literatur bekannt; hier nur aus dem Gedächtnis genannt und nicht geprüft. Die Demo behauptet es nicht, sie misst.

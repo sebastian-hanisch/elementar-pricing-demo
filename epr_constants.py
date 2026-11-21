@@ -55,7 +55,7 @@ PRESET_HELP = {
 ASSUMPTIONS_MARKDOWN = """\
 **Annahmen**
 - Eigene Instanzen im Stil der Solomon-Instanzen (Quadrat 100 × 100, Fahrzeit gleich Entfernung, Bedienzeit 10, Kapazität 70, Horizont 300, Kunden zufällig verteilt), **nicht die Originalinstanzen**; das Handbeispiel rechnet mit dem Manhattan-Abstand auf einem Gitter.
-- Die Dualpreise der Größenversuche und der Messreihen sind die der ersten Runde der Spaltenerzeugung (Master mit nur den Einzelfahrten) bzw. die der ganzen Spaltenerzeugung mit Überdeckungs-Master; die Dualpreise von Experiment 2 stellt man selbst ein.
+- Die Dualpreise der Größenversuche und der Messreihen sind die der ersten Runde der Spaltengenerierung (Master mit nur den Einzelfahrten) bzw. die der ganzen Spaltengenerierung mit Überdeckungs-Master; die Dualpreise von Experiment 2 stellt man selbst ein.
 - Warten vor einem Zeitfenster ist erlaubt und kostenlos.
 - Gezählt werden erzeugte Labels und Dominanzvergleiche, nicht Sekunden.
 
@@ -67,6 +67,6 @@ ASSUMPTIONS_MARKDOWN = """\
 
 **Bekannte Probleme und Unsicherheiten**
 - Ursachen („weil …“) sind Deutungen, wo es dasteht; gemessen sind die Zählungen.
-- Die Zahlen der ganzen Spaltenerzeugung (Experimente 4 und 5) hängen von den Dualpreisen ab, die der Löser des Master-Problems wählt, und können mit einer anderen Version der Bibliothek abweichen.
+- Die Zahlen der ganzen Spaltengenerierung (Experimente 4 und 5) hängen von den Dualpreisen ab, die der Löser des Master-Problems wählt, und können mit einer anderen Version der Bibliothek abweichen.
 - Die Darstellung der Tabellen und Diagramme ist im Browser am Computer und in einem 375 Pixel breiten Fenster durchgesehen, nicht auf anderen Geräten oder in anderen Browsern. Die Diagramme haben keine Auswahl per Mausklick.
 """

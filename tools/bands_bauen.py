@@ -5,8 +5,8 @@ Zwei Schritte (im Ordner der Demo, Python des Test-venv):
 1. Messen (neu gerechnet mit dem Kern der Demo, `tools/colgen_ref.py`, Überdeckungs-Master):
        python tools/bands_bauen.py messen --n 10 15 20 25 --breiten 40 100 --out roh_a.jsonl
        python tools/bands_bauen.py messen --n 30 --breiten 200 --out roh_c.jsonl
-   Eine Zeile je Spaltenerzeugung: n, Breite, Zufalls-Seed, Gedächtnis k (k = n heißt elementar), Schranke, Runden, Spalten, erzeugte und gestrichene Labels,
-   Dominanzvergleiche, Prüfungen, die nur an der Besuchsmenge scheiterten, Abbruch (Zeitgrenze je Pricing-Aufruf, Standard 30 s; 120 s je Spaltenerzeugung),
+   Eine Zeile je Spaltengenerierung: n, Breite, Zufalls-Seed, Gedächtnis k (k = n heißt elementar), Schranke, Runden, Spalten, erzeugte und gestrichene Labels,
+   Dominanzvergleiche, Prüfungen, die nur an der Besuchsmenge scheiterten, Abbruch (Zeitgrenze je Pricing-Aufruf, Standard 30 s; 120 s je Spaltengenerierung),
    die Runde des Abbruchs und die Sekunden (nur Information; Abbrüche hängen von der Zeitgrenze und der Last des Rechners ab).
 2. Bauen (liest die Rohzeilen und die Rohausgaben der Vormessung):
        python tools/bands_bauen.py bauen roh_a.jsonl roh_b.jsonl roh_c.jsonl --vormessung <Ordner label-setting-planung/vormessung>
@@ -120,7 +120,7 @@ def bauen(args) -> None:
         r["quelle"] = f"tools/bands_bauen.py messen (Kern der Demo, tools/colgen_ref.py), Überdeckungs-Master, Lauf vom {date.today().isoformat()}"
     folder = Path(args.vormessung)
     DATA.mkdir(exist_ok=True)
-    (DATA / "laeufe.json").write_text(json.dumps({"hinweis": "Je Zeile eine Spaltenerzeugung (Überdeckungs-Master), neu gerechnet mit dem Kern der Demo; k = n heißt elementar. "
+    (DATA / "laeufe.json").write_text(json.dumps({"hinweis": "Je Zeile eine Spaltengenerierung (Überdeckungs-Master), neu gerechnet mit dem Kern der Demo; k = n heißt elementar. "
                                                   "Sekunden und Abbrüche hängen von Rechner und Last ab.", "zeilen": rows}, ensure_ascii=False, indent=1), encoding="utf-8")
     (DATA / "vormessung.json").write_text(json.dumps({"hinweis": "Zahlen der Vormessung: V1 zum Vergleich mit dem Neurechnen, V7 und V8 und der Lauf unter Last NICHT neu gerechnet; "
                                                       "jede Zeile nennt ihre Quelldatei.", "abbrueche": vormessung_zeilen(folder), "wand_median": vormessung_wand(folder)},

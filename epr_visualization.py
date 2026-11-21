@@ -97,7 +97,7 @@ def build_wall_chart(table, width, live_n=None, live_per_label=None):
 
 
 def build_labels_chart(table):
-    """Median der erzeugten Labels der ganzen Spaltenerzeugung über die Kundenzahl: elementar gegen k = 5 und k = 1 (nur fertige Läufe)."""
+    """Median der erzeugten Labels der ganzen Spaltengenerierung über die Kundenzahl: elementar gegen k = 5 und k = 1 (nur fertige Läufe)."""
     fig = go.Figure()
     for mode, name, color, dash, w in (("elementar", "elementar", C.COLOR_OK, "solid", 3), ("k5", "Gedächtnis k = 5", C.COLOR_LINE, "dash", 2), ("k1", "Gedächtnis k = 1", C.COLOR_LINE2, "dot", 2)):
         pts = [(r["n"], r[mode]["labels_median"]) for r in table if r[mode]["labels_median"] is not None]

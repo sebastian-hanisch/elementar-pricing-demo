@@ -173,7 +173,7 @@ def first_blocked_pairs(a: HandAnalysis, limit: int = 8) -> list[dict]:
 
 
 def colgen_hand() -> G.ColgenResult:
-    """Die ganze Spaltenerzeugung am Handbeispiel, elementar, mit genauem Master (Brüche)."""
+    """Die ganze Spaltengenerierung am Handbeispiel, elementar, mit genauem Master (Brüche)."""
     return G.colgen(hand_instance(), hand_instance().n)
 
 
@@ -337,7 +337,7 @@ def mode_of(row: dict) -> str:
 
 
 def wall_table(rows: list[dict], width: int) -> list[dict]:
-    """Zeile je Kundenzahl für eine Fensterbreite: je Gedächtnis (k1, k5, elementar) die Zahl der fertigen Läufe, Median der Labels der ganzen Spaltenerzeugung,
+    """Zeile je Kundenzahl für eine Fensterbreite: je Gedächtnis (k1, k5, elementar) die Zahl der fertigen Läufe, Median der Labels der ganzen Spaltengenerierung,
     mittlerer Anteil gestrichener Labels, Median der Dominanzvergleiche und Vergleiche je Label (gepoolt über die fertigen Läufe)."""
     out = []
     for n in sorted({r["n"] for r in rows if r["breite"] == width}):

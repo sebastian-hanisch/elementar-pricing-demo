@@ -2,12 +2,12 @@
 
 Zwei Arten von Instanzen:
 - das **Handbeispiel** (7 Kunden, Manhattan-Abstand, ganze Zahlen; von Hand nachrechenbar; dasselbe Netz wie in den anderen Demos der Linie
-  „Ressourcenwege und Spaltenerzeugung“),
+  „Ressourcenwege und Spaltengenerierung“),
 - **Zufallsinstanzen** im Stil der Solomon-Instanzen (Quadrat 100 x 100, Fahrzeit = Entfernung, Bedienzeit 10, Kapazität 70, Horizont 300;
   nicht die Originalinstanzen). `make_instance` zieht die Zahlen in derselben Reihenfolge wie die Messreihen der Planung, damit die festen
   Zufalls-Seeds dieselben Instanzen ergeben.
 
-Dazu die Dualpreise der **ersten Runde** der Spaltenerzeugung: Solange der Master nur die Einzelfahrten kennt, ist der Dualpreis eines
+Dazu die Dualpreise der **ersten Runde** der Spaltengenerierung: Solange der Master nur die Einzelfahrten kennt, ist der Dualpreis eines
 Kunden gleich den Kosten seiner Einzelfahrt (zweimal die Entfernung zum Depot)."""
 
 import math
